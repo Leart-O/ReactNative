@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import MainScreen from './screens/MainScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import NewScreen from './screens/NewScreen';
 
 
  const Stack = createStackNavigator();
@@ -11,8 +12,9 @@ import { NavigationContainer } from '@react-navigation/native';
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='home'>
         <Stack.Screen name='home' component={MainScreen}></Stack.Screen>
+        <Stack.Screen name='new' component={NewScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
