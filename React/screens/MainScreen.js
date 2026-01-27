@@ -16,6 +16,14 @@ const MainScreen = () => {
           title="Go to New Screen"
           onPress={() => navigation.navigate('new')}
         />
+        
+        <Button title="FlatScreenExample"
+          onPress={() => navigation.navigate('FlatListsExample')}
+        />
+
+        <Button title="FlatListHouse"
+          onPress={() => navigation.navigate('FlatListHouse')}
+        />
       
     </View>
   );
