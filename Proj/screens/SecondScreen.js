@@ -1,0 +1,46 @@
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
+const SecondScreen = (props) => {
+  return (
+    <View style={styles.container}>
+        <Text style={styles.text}>Welcome to the Second Screen!</Text>
+        <TouchableOpacity style={[styles.button, { backgroundColor: 'yellow' }]} onPress={() => props.navigation.navigate('Pamja1')}>
+          <Text style={[styles.buttonText, { color: '#000' }]}>Go back to First Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, { backgroundColor: 'orange' }]} onPress={() => props.navigation.navigate('Pamja3')}>
+          <Text style={styles.buttonText}>Go to Third Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, { backgroundColor: 'purple' }]} onPress={() => props.navigation.navigate('Pamja4')}>
+          <Text style={styles.buttonText}>Go to Fourth Screen</Text>
+        </TouchableOpacity>
+    
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'lightblue',
+    },
+    text: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: 'white',
+    },
+    button: {
+        marginTop: 12,
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    buttonText: {
+      color: 'white',
+      fontWeight: '600',
+    },
+});
+export default SecondScreen;
