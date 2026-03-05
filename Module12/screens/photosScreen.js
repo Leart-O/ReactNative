@@ -5,7 +5,6 @@ const PhotosScreen = () => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    // Generate photos using dummyjson.com/image
     const generatedPhotos = Array.from({ length: 100 }, (_, i) => ({
       id: i + 1,
       title: `Photo ${i + 1}`,
@@ -38,17 +37,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#e8f5e8',
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    color: '#388e3c',
   },
   item: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f9fbe7',
     padding: 10,
     margin: 5,
     borderRadius: 8,
@@ -58,6 +58,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+    borderWidth: 2,
+    borderColor: '#ff5722',
   },
   image: {
     width: 100,
@@ -68,6 +70,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     textAlign: 'center',
+    color: '#2e7d32',
   },
 });
 

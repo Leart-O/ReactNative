@@ -34,16 +34,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#e8f5e8',
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    color: '#388e3c',
   },
   item: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f9fbe7',
     padding: 15,
     marginVertical: 5,
     borderRadius: 8,
@@ -52,14 +53,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+    borderLeftWidth: 5,
+    borderLeftColor: '#ff5722',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#2e7d32',
   },
   body: {
     fontSize: 14,
+    color: '#1b5e20',
   },
 });
 

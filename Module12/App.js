@@ -12,7 +12,7 @@ const screens = [PostsScreen, CommentsScreen, AlbumsScreen, PhotosScreen, UserSc
 const screenNames = ['Posts', 'Comments', 'Albums', 'Photos', 'Users', 'Todos'];
 
 export default function App() {
-  const [index, setIndex] = useState(2); // Start with Albums as in original
+  const [index, setIndex] = useState(2); 
 
   const next = () => setIndex((index + 1) % screens.length);
   const prev = () => setIndex((index - 1 + screens.length) % screens.length);
@@ -39,7 +39,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#e8f5e8',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#ccc',
   },
   button: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#ff5722',
     padding: 10,
     borderRadius: 5,
   },
@@ -62,5 +62,6 @@ const styles = StyleSheet.create({
   screenName: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#388e3c',
   },
 });
