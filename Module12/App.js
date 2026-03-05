@@ -1,12 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import PostsScreen from './screens/fetchdata';
-import AlbumsScreen from './screens/newfetch';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import PostsScreen from './screens/postsScreen';
+import CommentsScreen from './screens/commentsScreen';
+import AlbumsScreen from './screens/albumsScreen';
+import PhotosScreen from './screens/photosScreen';
+import UserScreen from './screens/userScreen';
+import TodosScreen from './screens/todosScreen';
+import { useState } from 'react';
+
+const screens = [PostsScreen, CommentsScreen, AlbumsScreen, PhotosScreen, UserScreen, TodosScreen];
+const screenNames = ['Posts', 'Comments', 'Albums', 'Photos', 'Users', 'Todos'];
 
 export default function App() {
+  const [index, setIndex] = useState(2); // Start with Albums as in original
+
+  const next = () => setIndex((index + 1) % screens.length);
+  const prev = () => setIndex((index - 1 + screens.length) % screens.length);
+
+  const CurrentScreen = screens[index];
+
   return (
     <View style={styles.container}>
-      <AlbumsScreen />
+      <CurrentScreen />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={prev}>
+          <Text style={styles.buttonText}>Previous</Text>
+        </TouchableOpacity>
+        <Text style={styles.screenName}>{screenNames[index]}</Text>
+        <TouchableOpacity style={styles.button} onPress={next}>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -15,8 +39,28 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f5',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+  },
+  button: {
+    backgroundColor: '#007bff',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  screenName: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
