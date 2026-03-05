@@ -5,10 +5,13 @@ const PhotosScreen = () => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/photos')
-      .then(response => response.json())
-      .then(data => setPhotos(data))
-      .catch(error => console.error(error));
+    // Generate photos using dummyjson.com/image
+    const generatedPhotos = Array.from({ length: 100 }, (_, i) => ({
+      id: i + 1,
+      title: `Photo ${i + 1}`,
+      thumbnailUrl: `https://dummyjson.com/image/150?text=Photo+${i + 1}`,
+    }));
+    setPhotos(generatedPhotos);
   }, []);
 
   const renderItem = ({ item }) => (
