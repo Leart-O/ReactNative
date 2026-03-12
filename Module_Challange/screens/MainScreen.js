@@ -7,7 +7,8 @@ export default function MainScreen({ navigation }) {
       <Text style={styles.title}>Main Menu</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('PhonesScreen')}
+        // navigate to the tab named "Phones"
+        onPress={() => navigation.navigate('Phones')}
       >
         <Text style={styles.buttonText}>View Phones</Text>
       </TouchableOpacity>
