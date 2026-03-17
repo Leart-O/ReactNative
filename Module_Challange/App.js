@@ -5,7 +5,8 @@ import PhonesScreen from './screens/PhonesScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
-import { View } from 'react-native-web';
+import { View, Text, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 const Drawer = createDrawerNavigator();
 
@@ -56,14 +57,14 @@ export default function App() {
 
           drawerItemStyle: {
             borderRadius: 12,
-            marginHporizontal: 10,
+              marginHorizontal: 10,
             marginVertical: 4,
             paddingVertical: 2,
           },
           headerStyle: {
             backgroundColor: '#16213e',
             elevation: 0,
-            showOpacity: 0,
+              shadowOpacity: 0,
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -141,4 +142,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 4,
   },
+    userInfo: {
+      alignItems: 'center',
+      marginBottom: 10,
+    },
+    drawerFooter: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop: 12,
+      color: '#fff',
+    },
 });
