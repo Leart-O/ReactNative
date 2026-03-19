@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~55.0.6",
+    "@expo/ngrok": "^4.1.0",
     "@expo/vector-icons": "^15.1.1",
     "@react-navigation/bottom-tabs": "^7.15.5",
     "@react-navigation/drawer": "^7.9.4",
