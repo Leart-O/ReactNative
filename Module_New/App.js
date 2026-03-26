@@ -3,11 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {Ionicons} from '@expo/vector-icons';
 import Products from './screens/Products';
-
+import Slider from './screens/Slider';
 export default function App() {
   return (
     <NavigationContainer>
-      <Products />
+      {/* <Products /> */}
+      <Slider />
     </NavigationContainer>
   );
 }

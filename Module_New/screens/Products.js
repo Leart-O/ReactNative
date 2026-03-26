@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 
 const ProductsScreen = () => {
@@ -14,43 +14,42 @@ const ProductsScreen = () => {
                 console.error("Error fetching products:", error);
             }
         };
-            fetchProducts();
-        }, 
-    []);
-}
 
-return (
-    <View>
-        <Text>
+        fetchProducts();
+    }, []);
+
+    return (
+        <View style={styles.container}>
             <FlatList
                 data={products}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => {
-                    return (
-                        <View>
-                            <Image source={{ uri: item.image }} resizeMode="contain"/>
-                            <View>
-                                <Text numberOfLines={2}>{item.title}</Text>
-                                <Text>${item.price.toFixed(2)}</Text>
-                            </View>
+                contentContainerStyle={styles.listContent}
+                renderItem={({ item }) => (
+                    <View style={styles.card}>
+                        <Image
+                            source={{ uri: item.image }}
+                            style={styles.img}
+                            resizeMode="contain"
+                        />
+                        <View style={styles.textContainer}>
+                            <Text style={styles.title} numberOfLines={2}>
+                                {item.title}
+                            </Text>
+                            <Text style={styles.price}>
+                                ${item.price.toFixed(2)}
+                            </Text>
                         </View>
-                    );
-                }}
+                    </View>
+                )}
             />
-        </Text>
-    </View>
-);
+        </View>
+    );
+};
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
-    },
-    header: {
-        fontSize: 24,
-        fontWeight: "bold",
-        padding: 16,
-        paddingTop: 40,
-        backgroundColor: "#f8f8f8",
     },
     listContent: {
         padding: 16,
@@ -91,6 +90,4 @@ const styles = StyleSheet.create({
     },
 });
 
-
 export default ProductsScreen;
-
