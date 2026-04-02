@@ -1,4 +1,4 @@
-npx create-expo-app Module_N3w –-template
+npx create-expo-app Module_Product –-template
 
 npx expo install react-native-web react-dom @expo/metro-runtime
 
