@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Image, StyleSheet} from "react-native";
+import { Image } from "react-native";
 
 const Bird = ({birdBottom, birdLeft}) => {
     const birdWidth = 40;
@@ -13,17 +13,10 @@ const Bird = ({birdBottom, birdLeft}) => {
                 width: 40,
                 height: 40,
             }}
-            source={require("../assets/bird1.png")}
+            source={require("../../assets/bird1.png")}
             resizeMode="stretch"
         />
     );
 }
-
-const styles = StyleSheet.create({
-    tinyLogo: {
-        width: 40,
-        height: 40,
-    },
-});
 
 export default Bird;
