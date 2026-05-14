@@ -1,9 +1,9 @@
 //Food.js
 // RecipeCard.jsx
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Linking, Alert } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-const Food = ({ recipe }) => {
+const Food = ({ recipe, onFavorite }) => {
 	const openFood = () => {
 		if (recipe.url) {
 			Linking.openURL(recipe.url);
@@ -70,50 +70,53 @@ const Food = ({ recipe }) => {
 				</View>
 				<View style={{ flexDirection: 'row', 
 							justifyContent: 'space-between', 
-							alignItems: 'center' }}>
-					<TouchableOpacity onPress={openFood}>
+							alignItems: 'center', 
+							flexWrap: 'wrap',
+							gap: 8 }}>
+					<TouchableOpacity onPress={openFood} style={{ flex: 1, minWidth: '30%' }}>
 						<View style={{ backgroundColor: '#FF4081',
-									padding: 6,
+									padding: 8,
 									borderRadius: 8,
 									alignItems: 'center',}}>
-							<Svg width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="white"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round">
-								<Path d="M10 12H5l7-7 7 7h-5v6h-4v-6z"></Path>
-							</Svg>
+							<Text style={{ fontSize: 16 }}>👁️</Text>
 							<Text style={{ color: 'white', 
-										fontWeight: 'bold' }}>
-								View Recipe
+										fontWeight: 'bold',
+										fontSize: 11,
+										marginTop: 4 }}>
+								View
 							</Text>
 						</View>
 					</TouchableOpacity>
-					<TouchableOpacity onPress={shareFood}>
+					<TouchableOpacity onPress={shareFood} style={{ flex: 1, minWidth: '30%' }}>
 						<View style={{ backgroundColor: '#FF6F61',
-									padding: 6,
+									padding: 8,
 									borderRadius: 8,
-									alignItems: 'center',
-									marginLeft: 10,}}>
-							<Svg width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="white"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round">
-								<Path d="M24 12l-9-8v6H2v4h13v6z"></Path>
-							</Svg>
+									alignItems: 'center'}}>
+							<Text style={{ fontSize: 16 }}>📤</Text>
 							<Text style={{ color: 'white', 
-										fontWeight: 'bold' }}>
-								Share Recipe
+										fontWeight: 'bold',
+										fontSize: 11,
+										marginTop: 4 }}>
+								Share
 							</Text>
 						</View>
 					</TouchableOpacity>
+					{onFavorite && (
+						<TouchableOpacity onPress={onFavorite} style={{ flex: 1, minWidth: '30%' }}>
+							<View style={{ backgroundColor: '#FF1493',
+										padding: 8,
+										borderRadius: 8,
+										alignItems: 'center'}}>
+								<Text style={{ fontSize: 16 }}>❤️</Text>
+								<Text style={{ color: 'white', 
+											fontWeight: 'bold',
+											fontSize: 11,
+											marginTop: 4 }}>
+									Save
+								</Text>
+							</View>
+						</TouchableOpacity>
+					)}
 				</View>
 			</View>
 		</View>
